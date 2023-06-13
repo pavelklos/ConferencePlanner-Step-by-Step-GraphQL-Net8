@@ -8,7 +8,6 @@ namespace GraphQL.Data
             : base(options)
         {
         }
-
-        public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<Speaker> Speakers { get; set; } = default!;
     }
 }
