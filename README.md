@@ -15,12 +15,12 @@
   
 **NuGet packages:**  
   
-**Microsoft.EntityFrameworkCore.Sqlite** (7.0.5)  
+**Microsoft.EntityFrameworkCore.Sqlite** (7.0.5)  => **(8.0.0-preview.4.23259.3)**  
 SQLite database provider for Entity Framework Core.  
   
-**Microsoft.EntityFrameworkCore.Tools** (7.0.5)  
+**Microsoft.EntityFrameworkCore.Tools** (7.0.5)  => **(8.0.0-preview.4.23259.3)**  
 Entity Framework Core Tools for NuGet Package Manager Console in Visual Studio.  
   
-**HotChocolate.AspNetCore** (13.2.1)  
+**HotChocolate.AspNetCore** (13.2.1)  => **(14.0.0-preview.11.3)**  
 Contains GraphQL ASP.NET Core middleware for Hot Chocolate.  
 Includes Banana Cake Pop middleware, which provides with GraphQL IDE middleware.  
