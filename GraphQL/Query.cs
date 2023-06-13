@@ -4,7 +4,21 @@ namespace GraphQL
 {
     public class Query
     {
-        public IQueryable<Speaker> GetSpeakers([Service] ApplicationDbContext context) =>
-            context.Speakers;
+        private readonly ILogger _logger;
+
+        public Query(ILogger<Query> logger)
+        {
+            _logger = logger;
+        }
+
+        //public IQueryable<Speaker> GetSpeakers([Service] ApplicationDbContext context) =>
+        //    context.Speakers;
+
+        public IQueryable<Speaker> GetSpeakers([Service] ApplicationDbContext context)
+        {
+            _logger.LogInformation("█ DB-TABLE █ Speakers: {count} row(s)", context.Speakers.Count());
+
+            return context.Speakers;
+        }
     }
 }
