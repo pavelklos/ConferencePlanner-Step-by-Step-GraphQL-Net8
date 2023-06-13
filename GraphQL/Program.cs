@@ -11,9 +11,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite("Data Source=conferences.db"));
 
 // GraphQL
-builder.Services.AddGraphQLServer()
-    .AddQueryType<Query>();
-
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>();
 
 //------------------------------------------------------------------------------
 var app = builder.Build();
@@ -23,6 +24,8 @@ var app = builder.Build();
 app.MapGraphQL();
 
 app.MapGet("/", () => "Hello World!");
+app.MapGet("/speakers", ([Service] ApplicationDbContext context)
+    => context.Speakers.ToList());
 
 //------------------------------------------------------------------------------
 app.Run();
