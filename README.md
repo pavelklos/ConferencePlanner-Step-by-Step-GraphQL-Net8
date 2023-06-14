@@ -1,6 +1,7 @@
 # ConferencePlanner  
+Thanks to [ChilliCream](https://chillicream.com/) for their products, tutorials, ...
   
-## GraphQL - <span>ASP.NET Core</span> - Hot Chocolate  
+## GraphQL - Hot Chocolate (<span>ASP.NET Core</span>)  
   
 **Technologies**:  
 - **.NET 8** LTS (Long Term Support)  
@@ -24,3 +25,5 @@ Entity Framework Core Tools for NuGet Package Manager Console in Visual Studio.
 **HotChocolate.AspNetCore** (13.2.1)  => **(14.0.0-preview.11.3)**  
 Contains GraphQL ASP.NET Core middleware for Hot Chocolate.  
 Includes Banana Cake Pop middleware, which provides with GraphQL IDE middleware.  
+
+## GraphQL.Client - Strawberry Shake (Blazor WASM)  
