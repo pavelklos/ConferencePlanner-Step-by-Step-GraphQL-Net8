@@ -1,6 +1,7 @@
 using GraphQL;
 using GraphQL.Data;
 using GraphQL.DataLoader;
+using GraphQL.Speakers;
 using GraphQL.Types;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +22,9 @@ builder.Services.AddPooledDbContextFactory<ApplicationDbContext>(options =>
 builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>()
-    .AddMutationType<Mutation>()
+    //.AddMutationType<SpeakerMutations>()
+    .AddMutationType(d => d.Name("Mutation"))
+        .AddTypeExtension<SpeakerMutations>()
     .AddType<SpeakerType>()
     .AddDataLoader<SpeakerByIdDataLoader>()
     .AddDataLoader<SessionByIdDataLoader>();
