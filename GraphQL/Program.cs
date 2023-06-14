@@ -11,7 +11,8 @@ builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
 // DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddPooledDbContextFactory<ApplicationDbContext>(options =>
     options.UseSqlite("Data Source=conferences.db"));
 
 // GraphQL
@@ -29,8 +30,8 @@ app.MapGraphQL();
 
 // Minimal API
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/speakers", ([Service] ApplicationDbContext context)
-    => context.Speakers.ToList());
+//app.MapGet("/speakers", ([Service] ApplicationDbContext context)
+//    => context.Speakers.ToList());
 
 //------------------------------------------------------------------------------
 app.Run();
