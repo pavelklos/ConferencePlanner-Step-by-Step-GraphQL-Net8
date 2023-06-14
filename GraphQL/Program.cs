@@ -1,6 +1,7 @@
 using GraphQL;
 using GraphQL.Data;
 using GraphQL.DataLoader;
+using GraphQL.Types;
 using Microsoft.EntityFrameworkCore;
 
 //------------------------------------------------------------------------------
@@ -21,7 +22,9 @@ builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>()
-    .AddDataLoader<SpeakerByIdDataLoader>();
+    .AddType<SpeakerType>()
+    .AddDataLoader<SpeakerByIdDataLoader>()
+    .AddDataLoader<SessionByIdDataLoader>();
 
 //------------------------------------------------------------------------------
 var app = builder.Build();
