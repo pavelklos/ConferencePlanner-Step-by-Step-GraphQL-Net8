@@ -14,6 +14,9 @@ namespace GraphQL.Data
         public string? Bio { get; set; }
 
         [StringLength(1000)]
-        public virtual string? WebSite { get; set; }
+        public string? WebSite { get; set; }
+
+        public ICollection<SessionSpeaker> SessionSpeakers { get; set; } =
+            new List<SessionSpeaker>();
     }
 }
