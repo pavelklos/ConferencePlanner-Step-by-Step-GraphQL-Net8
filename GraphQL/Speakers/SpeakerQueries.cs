@@ -1,10 +1,11 @@
-﻿    using GraphQL.Data;
+﻿using GraphQL.Data;
 using GraphQL.DataLoader;
 using Microsoft.EntityFrameworkCore;
 
-namespace GraphQL
+namespace GraphQL.Speakers
 {
-    public class Query
+    [ExtendObjectType("Query")]
+    public class SpeakerQueries
     {
         [UseApplicationDbContext]
         public Task<List<Speaker>> GetSpeakers([ScopedService] ApplicationDbContext context) =>
@@ -14,7 +15,7 @@ namespace GraphQL
             [ID(nameof(Speaker))] int id,
             SpeakerByIdDataLoader dataLoader,
             CancellationToken cancellationToken) =>
-                dataLoader.LoadAsync(id, cancellationToken);
+            dataLoader.LoadAsync(id, cancellationToken);
     }
 }
 

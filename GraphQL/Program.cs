@@ -1,4 +1,3 @@
-using GraphQL;
 using GraphQL.Data;
 using GraphQL.DataLoader;
 using GraphQL.Speakers;
@@ -21,11 +20,16 @@ builder.Services.AddPooledDbContextFactory<ApplicationDbContext>(options =>
 // GraphQL
 builder.Services
     .AddGraphQLServer()
-    .AddQueryType<Query>()
+    //.AddQueryType<SpeakerQueries>()
+    .AddQueryType(d => d.Name("Query"))
+        .AddTypeExtension<SpeakerQueries>()
     //.AddMutationType<SpeakerMutations>()
     .AddMutationType(d => d.Name("Mutation"))
         .AddTypeExtension<SpeakerMutations>()
+    .AddType<AttendeeType>()
+    .AddType<SessionType>()
     .AddType<SpeakerType>()
+    .AddType<TrackType>()
     //.EnableRelaySupport() // OBSOLETE
     .AddGlobalObjectIdentification() // .EnableRelaySupport()
     .AddDataLoader<SpeakerByIdDataLoader>()
