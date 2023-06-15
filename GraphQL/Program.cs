@@ -1,6 +1,8 @@
 using GraphQL.Data;
 using GraphQL.DataLoader;
+using GraphQL.Sessions;
 using GraphQL.Speakers;
+using GraphQL.Tracks;
 using GraphQL.Types;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,7 +27,9 @@ builder.Services
         .AddTypeExtension<SpeakerQueries>()
     //.AddMutationType<SpeakerMutations>()
     .AddMutationType(d => d.Name("Mutation"))
+        .AddTypeExtension<SessionMutations>()
         .AddTypeExtension<SpeakerMutations>()
+        .AddTypeExtension<TrackMutations>()
     .AddType<AttendeeType>()
     .AddType<SessionType>()
     .AddType<SpeakerType>()
