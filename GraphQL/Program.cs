@@ -26,6 +26,8 @@ builder.Services
     .AddMutationType(d => d.Name("Mutation"))
         .AddTypeExtension<SpeakerMutations>()
     .AddType<SpeakerType>()
+    //.EnableRelaySupport() // OBSOLETE
+    .AddGlobalObjectIdentification() // .EnableRelaySupport()
     .AddDataLoader<SpeakerByIdDataLoader>()
     .AddDataLoader<SessionByIdDataLoader>();
 

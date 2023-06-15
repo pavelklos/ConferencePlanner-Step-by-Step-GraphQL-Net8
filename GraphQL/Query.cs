@@ -1,4 +1,4 @@
-﻿using GraphQL.Data;
+﻿    using GraphQL.Data;
 using GraphQL.DataLoader;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +11,7 @@ namespace GraphQL
             context.Speakers.ToListAsync();
 
         public Task<Speaker> GetSpeakerAsync(
-            int id,
+            [ID(nameof(Speaker))] int id,
             SpeakerByIdDataLoader dataLoader,
             CancellationToken cancellationToken) =>
                 dataLoader.LoadAsync(id, cancellationToken);
