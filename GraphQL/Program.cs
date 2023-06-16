@@ -36,6 +36,7 @@ builder.Services
         .AddTypeExtension<SpeakerMutations>()
         .AddTypeExtension<TrackMutations>()
     .AddSubscriptionType(d => d.Name("Subscription"))
+        .AddTypeExtension<AttendeeSubscriptions>()
         .AddTypeExtension<SessionSubscriptions>()
     .AddType<AttendeeType>()
     .AddType<SessionType>()
