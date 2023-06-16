@@ -35,6 +35,8 @@ builder.Services
         .AddTypeExtension<SessionMutations>()
         .AddTypeExtension<SpeakerMutations>()
         .AddTypeExtension<TrackMutations>()
+    .AddSubscriptionType(d => d.Name("Subscription"))
+        .AddTypeExtension<SessionSubscriptions>()
     .AddType<AttendeeType>()
     .AddType<SessionType>()
     .AddType<SpeakerType>()
@@ -43,6 +45,7 @@ builder.Services
     .AddGlobalObjectIdentification() // .EnableRelaySupport()
     .AddFiltering()
     .AddSorting()
+    .AddInMemorySubscriptions() // In-Memory pub/sub system for GraphQL subscriptions 
     .AddDataLoader<SpeakerByIdDataLoader>()
     .AddDataLoader<SessionByIdDataLoader>()
     .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = builder.Environment.IsDevelopment()); // ADDED
@@ -50,6 +53,9 @@ builder.Services
 //------------------------------------------------------------------------------
 var app = builder.Build();
 //------------------------------------------------------------------------------
+
+// WebSockets
+app.UseWebSockets();
 
 // GraphQL
 app.MapGraphQL();
