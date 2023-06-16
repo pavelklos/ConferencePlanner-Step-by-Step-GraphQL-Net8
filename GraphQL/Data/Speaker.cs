@@ -8,6 +8,7 @@ namespace GraphQL.Data
 
         [Required]
         [StringLength(200)]
+        [UseUpperCase]
         public string? Name { get; set; }
 
         [StringLength(4000)]
