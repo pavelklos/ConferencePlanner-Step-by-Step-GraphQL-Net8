@@ -39,7 +39,8 @@ builder.Services
     //.EnableRelaySupport() // OBSOLETE
     .AddGlobalObjectIdentification() // .EnableRelaySupport()
     .AddDataLoader<SpeakerByIdDataLoader>()
-    .AddDataLoader<SessionByIdDataLoader>();
+    .AddDataLoader<SessionByIdDataLoader>()
+    .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = builder.Environment.IsDevelopment()); // ADDED
 
 //------------------------------------------------------------------------------
 var app = builder.Build();
