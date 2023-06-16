@@ -1,3 +1,4 @@
+using GraphQL.Attendees;
 using GraphQL.Data;
 using GraphQL.DataLoader;
 using GraphQL.Sessions;
@@ -24,11 +25,13 @@ builder.Services
     .AddGraphQLServer()
     //.AddQueryType<SpeakerQueries>()
     .AddQueryType(d => d.Name("Query"))
+        .AddTypeExtension<AttendeeQueries>()
         .AddTypeExtension<SessionQueries>()
         .AddTypeExtension<SpeakerQueries>()
         .AddTypeExtension<TrackQueries>()
     //.AddMutationType<SpeakerMutations>()
     .AddMutationType(d => d.Name("Mutation"))
+        .AddTypeExtension<AttendeeMutations>()
         .AddTypeExtension<SessionMutations>()
         .AddTypeExtension<SpeakerMutations>()
         .AddTypeExtension<TrackMutations>()
