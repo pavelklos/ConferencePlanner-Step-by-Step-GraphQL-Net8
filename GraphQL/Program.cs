@@ -38,6 +38,8 @@ builder.Services
     .AddType<TrackType>()
     //.EnableRelaySupport() // OBSOLETE
     .AddGlobalObjectIdentification() // .EnableRelaySupport()
+    .AddFiltering()
+    .AddSorting()
     .AddDataLoader<SpeakerByIdDataLoader>()
     .AddDataLoader<SessionByIdDataLoader>()
     .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = builder.Environment.IsDevelopment()); // ADDED

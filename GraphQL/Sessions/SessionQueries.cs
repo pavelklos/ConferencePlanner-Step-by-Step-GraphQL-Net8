@@ -9,11 +9,20 @@ namespace GraphQL.Sessions
     public class SessionQueries
     {
         [UseApplicationDbContext]
-        //[UsePaging]
         [UsePaging(typeof(NonNullType<SessionType>))]
+        //[UseFiltering]
+        [UseFiltering(typeof(SessionFilterInputType))]
+        [UseSorting]
         public IQueryable<Session> GetSessions(
             [ScopedService] ApplicationDbContext context) =>
             context.Sessions;
+
+        //[UseApplicationDbContext]
+        ////[UsePaging]
+        //[UsePaging(typeof(NonNullType<SessionType>))]
+        //public IQueryable<Session> GetSessions(
+        //    [ScopedService] ApplicationDbContext context) =>
+        //    context.Sessions;
 
         //[UseApplicationDbContext]
         //public async Task<IEnumerable<Session>> GetSessionsAsync(
